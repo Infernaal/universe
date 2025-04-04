@@ -49,7 +49,7 @@ public final class MailService {
     }
 
     @SuppressWarnings("UnstableApiUsage")
-    private static String getResource(String resource) {
+    public static String getResource(String resource) {
         try {
             return Resources.toString(Resources.getResource(resource), StandardCharsets.UTF_8);
         } catch (IOException ignored) {
@@ -57,7 +57,7 @@ public final class MailService {
         }
     }
 
-    private static Multipart render(String template, Map<String, String> values) throws MessagingException {
+    public static Multipart render(String template, Map<String, String> values) throws MessagingException {
         StringSubstitutor stringSubstitutor = new StringSubstitutor(values);
         Multipart multipart = new MimeMultipart("alternative");
 
