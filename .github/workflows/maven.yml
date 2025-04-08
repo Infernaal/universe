@@ -48,4 +48,9 @@ jobs:
         run: npm install -g selenium-side-runner
 
       - name: Run Selenium IDE Tests
-        run: selenium-side-runner src/test/java/com/fluffy/universe/selenium.side
+        run: |
+          mkdir -p /tmp/selenium-profile
+          selenium-side-runner \
+            --capabilities browserName=chrome \
+            --chromeOptions.args="--user-data-dir=/tmp/selenium-profile" \
+            src/test/java/com/fluffy/universe/selenium.side
