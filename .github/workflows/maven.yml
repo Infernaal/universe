@@ -51,6 +51,5 @@ jobs:
         run: |
           mkdir -p /tmp/selenium-profile
           selenium-side-runner \
-            --capabilities browserName=chrome \
-            --chromeOptions.args="--user-data-dir=/tmp/selenium-profile" \
+            --capabilities '{"browserName":"chrome","goog:chromeOptions":{"args":["--headless","--no-sandbox","--disable-dev-shm-usage","--user-data-dir=/tmp/selenium-profile"]}}' \
             src/test/java/com/fluffy/universe/selenium.side
